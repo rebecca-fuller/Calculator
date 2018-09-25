@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     TextView mathTV;
@@ -14,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     String user, math, answer, numOneS, numTwoS;
 
     int numOne, numTwo;
+    private int mNumOne;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         add = findViewById(R.id.add_Button);
         minus = findViewById(R.id.minus_Button);
         division = findViewById(R.id.div_Button);
+        multi = findViewById(R.id.multi_Button);
         enter = findViewById(R.id.enter_Button);
         clear = findViewById(R.id.clear_Button);
 
@@ -45,101 +46,123 @@ public class MainActivity extends AppCompatActivity {
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userInput(1);
+                if (numOneS == null) {
+                    numOne = 1;
+                    setNumOne(numOne);
+                }
             }
         });
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userInput(2);
+                if (numOneS == null) {
+                    numOne = 2;
+                    setNumOne(numOne);
+                }
             }
         });
         three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userInput(3);
+                if (numOneS == null) {
+                    numOne = 3;
+                    setNumOne(numOne);
+                }
             }
         });
         four.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userInput(4);
+                if (numOneS == null) {
+                    numOne = 4;
+                    setNumOne(numOne);
+                }
             }
         });
         five.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userInput(5);
+                if (numOneS == null) {
+                    numOne = 5;
+                    setNumOne(numOne);
+                }
             }
         });
         six.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userInput(6);
+                if (numOneS == null) {
+                    numOne = 6;
+                    setNumOne(numOne);
+                }
             }
         });
         seven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userInput(7);
+                if (numOneS == null) {
+                    numOne = 7;
+                    setNumOne(numOne);
+                }
             }
         });
         eight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userInput(8);
+                if (numOneS == null) {
+                    numOne = 8;
+                    setNumOne(numOne);
+                }
             }
         });
         nine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userInput(9);
+                if (numOneS == null) {
+                    numOne = 9;
+                    setNumOne(numOne);
+                }
             }
         });
         zero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userInput(0);
+                if (numOneS == null) {
+                    numOne = 0;
+                    setNumOne(numOne);
+                }
             }
         });
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                math = "+";
-                userMath(math);
+
             }
         });
         minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                math = "-";
-                userMath(math);
+
             }
         });
         division.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                math = "/";
-                userMath(math);
+
             }
         });
         multi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                math = "*";
-                userMath(math);
+
             }
         });
 
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (numOneS != null && numTwoS != null) {
-                    mathTV.setText(answer);
-                } else {
-                    Toast.makeText(MainActivity.this, "Please enter a problem.", Toast.LENGTH_SHORT).show();
-                }
+
             }
         });
         clear.setOnClickListener(new View.OnClickListener() {
@@ -156,57 +179,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void userInput(int num) {
-        if (numOneS != null) {
-            numOneS = String.valueOf(num);
-            numOne = num;
+    public void setNumOne(int numOne) {
+        numOneS = String.valueOf(numOne);
 
-            mathTV.setText(numOneS);
-        }
-
-        if (numTwoS != null) {
-            numTwoS = String.valueOf(num);
-            numOne = num;
-
-            user = numOneS + math + numTwoS;
-
-            mathTV.setText(user);
-        }
-
-
-    }
-
-    private void userMath(String math) {
-        if (numOneS == null) {
-            Toast.makeText(this, "Please enter your first number.", Toast.LENGTH_SHORT).show();
-        } else {
-            user = numOneS + math;
-        }
-
-        if (numOneS != null && numTwoS != null) {
-            user = numOneS + math + numTwoS;
-        }
-
-
-        if (math == "+") {
-            if (numOneS != null && numTwoS != null) {
-                answer = String.valueOf(numOne + numTwo);
-            }
-        } else if (math == "-") {
-            if (numOneS != null && numTwoS != null) {
-                answer = String.valueOf(numOne - numTwo);
-            }
-        } else if (math == "/") {
-            if (numOneS != null && numTwoS != null) {
-                if (numOne > numTwo) {
-                    answer = String.valueOf(numOne / numTwo);
-                } else {
-                    Toast.makeText(this, "Please enter a different problem.", Toast.LENGTH_SHORT).show();
-                }
-            }
-        } else if (math == "*") {
-            answer = String.valueOf(numOne * numTwo);
-        }
+        user = numOneS + " ";
 
         mathTV.setText(user);
     }
