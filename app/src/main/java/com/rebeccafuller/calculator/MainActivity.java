@@ -33,7 +33,11 @@ public class MainActivity extends AppCompatActivity {
         nine = findViewById(R.id.nine_Button);
         zero = findViewById(R.id.zero_Button);
 
-        
+        add = findViewById(R.id.add_Button);
+        minus = findViewById(R.id.minus_Button);
+        division = findViewById(R.id.div_Button);
+        enter = findViewById(R.id.enter_Button);
+        clear = findViewById(R.id.clear_Button);
 
         numOneS = null;
         numTwoS = null;
