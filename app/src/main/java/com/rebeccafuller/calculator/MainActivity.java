@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+<<<<<<< HEAD
     TextView mathTV;
     Button one, two, three, four, five, six, seven, eight, nine, zero, add, minus, multi, division, enter, clear;
 
@@ -14,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     int numOne, numTwo;
     private int mNumOne;
+=======
+>>>>>>> parent of 703e7c4... Finished UI
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
